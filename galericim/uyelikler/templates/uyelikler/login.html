@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <style>
+      .rememberp{
+          color: #000000;
+          font-size: 15px;
+          font-weight: 600;
+          display: inline;
+          margin-left: 5px;
+          margin-bottom: 2px;
+      }
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            Giriş Yap
+        </div>
+
+        <form class="form"  method="POST">
+            {% csrf_token %}
+            {% if error%}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            {% endif %}
+            <div class="input_field">
+                <input type="text" placeholder="Username" class="input" name="username">
+            </div>
+            
+            <div class="input_field">
+                <input type="password" placeholder="Şifre" class="input" name="password">
+                
+                </div>
+                <div>
+                    <input type="checkbox" class="remember"><p class="rememberp">Beni hatırla</p>  
+                </div>
+                    <input type="submit" value="Giriş Yap" class="btn">
+
+            </div>
+            
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            Kayıt Ol
+        </div>
+
+        <form class="form" method="POST">
+            {% csrf_token %}
+            {% if error%}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            {% endif %}
+            <div class="input_field">
+                <input type="text" placeholder="Kullanıcı Adı" class="input" name="username">  
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="E-mail" class="input" name="email">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="İsim" class="input" name="firstname">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Soyisim" class="input" name="lastname">
+            </div>
+            <div class="input_field">
+                <input type="password" placeholder="Şifre" class="input" name="password">
+            </div>
+            <div class="input_field">
+                <input type="password" placeholder="Şifre Onay" class="input" name="repassword">
+            </div>
+            
+                <input type="submit" value="Kayıt Ol" class="btn">
+            
+            
+            
+
+            </div>
+            
+            
+        </form>
+    </div>
+</body>
+</html>

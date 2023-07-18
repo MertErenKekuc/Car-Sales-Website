@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            Bilgilerim
+        </div>
+
+        <form class="form" method="POST" action="{% url 'info' %}">
+            {% csrf_token %}
+            {% if error%}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            {% endif %}
+            <div class="input_field">
+                <input type="text" placeholder="Kullanıcı Adı" class="input" name="username" value="{{ user.username }}">  
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="E-mail" class="input" name="email" value="{{ user.email }}">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="İsim" class="input" name="firstname" value="{{ user.first_name }}">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Soyisim" class="input" name="lastname" value="{{ user.last_name }}">
+            </div>
+            <div class="input_field">
+                <input type="password" placeholder="Şifre" class="input" name="password" value="{{ user.password }}">
+            </div>
+            <div class="input_field">
+                <input type="password" placeholder="Şifre Onay" class="input" name="repassword" value="{{ user.password }}">
+            </div>
+            
+            <input type="submit" value="Güncelle" class="btn">
+            
+
+            </div>
+            
+            
+        </form>
+    </div>
+</body>
+</html>
